@@ -45,7 +45,7 @@ while True:
         time.sleep(2)
         print(f"el jugador ahora tiene {vida_jugador} puntos de vida!")
         print(f"el bot ahora tiene {vida_bot} puntos de vida!")
-        print(f"el bot ahora tiene {bot_escudos}...")
+        print(f"el bot ahora tiene {bot_escudos}escudos...")
     elif eleccion == "D" and eleccion_bot == "A":
         time.sleep(1)
         print("decides defenderte del rival")
@@ -59,7 +59,7 @@ while True:
         time.sleep(2)
         print(f"el jugador ahora tiene {vida_jugador} puntos de vida!")
         print(f"el bot ahora tiene {vida_bot} puntos de vida!")
-        print(f"ahora te quedan{jugador_escudos}...")
+        print(f"ahora te quedan{jugador_escudos}escudos...")
     else:
          time.sleep(1)
          print("decides defenderte del rival")
