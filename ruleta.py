@@ -64,7 +64,7 @@ while True:
 
     time.sleep(2.5)
 
-    print("\n[TURNO DE LA TERMINAL]")
+    print("\nturno del terminal")
     time.sleep(1.5)
     print("La Terminal está pensando su jugada...")
     time.sleep(3)

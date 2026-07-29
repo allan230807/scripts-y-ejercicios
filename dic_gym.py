@@ -1,4 +1,4 @@
-brazos = []
+brazos = [] 
 torso = []
 piernas = []
 diccionario = { "brazos": brazos, "torso": torso, "piernas": piernas }
@@ -20,6 +20,3 @@ while True:
     peso = input("Ingresa el peso que deseas agregar para el ejercicio: ")
     diccionario_actualizado = agregar_ejercicio(diccionario, grupo_muscular, ejercicio, peso)
     print("\nDiccionario actualizado:")
-  
-
-

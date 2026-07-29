@@ -1,5 +1,4 @@
 import random 
-
 def generate_password(length=10):
     if length < 10:
         raise ValueError("Password length should be at least 10 characters.")
