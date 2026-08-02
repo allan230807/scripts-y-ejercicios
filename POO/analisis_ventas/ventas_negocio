@@ -1,0 +1,47 @@
+import pandas as pd
+import numpy as np
+import random
+
+np.random.seed(42)
+
+vendedores = ["Carlos", "Ana", "Luis", "Elena", "Sofia"]
+regiones = ["Norte", "Sur", "Este", "Oeste"]
+categorias = ["Laptops", "Celulares", "Accesorios", "Monitores"]
+precios_base = {"Laptops": 1200, "Celulares": 800, "Accesorios": 50, "Monitores": 300}
+
+data = {
+    "fecha": pd.date_range(start="2026-01-01", periods=100, freq="D"),
+    "vendedor": np.random.choice(vendedores, 100),
+    "region": np.random.choice(regiones, 100),
+    "categoria": np.random.choice(categorias, 100),
+    "unidades": np.random.randint(1, 6, 100)
+}
+df_ventas = pd.DataFrame(data)
+df_ventas["monto"] = df_ventas["categoria"].map(precios_base) * df_ventas["unidades"]
+
+class AnalisisVentas:
+    def __init__(self, df):
+        self.df =df
+    def kpis_globales(self):
+        total_ventas = self.df["monto"].sum()
+        ventas_por_categoria = self.df.groupby("categoria")["monto"].sum().reset_index()
+        ventas_por_vendedor = self.df.groupby("vendedor")["monto"].sum().reset_index()
+        return total_ventas, ventas_por_categoria, ventas_por_vendedor
+    def ventas_por_region(self):
+        return {row["region"]: row["monto"] for _, row in self.df.groupby("region")["monto"].sum().reset_index().iterrows()}
+    def metricas_por_vendedor(self):
+        resumen = self.df.groupby("vendedor").agg(
+            total_ventas=pd.NamedAgg(column="monto", aggfunc="sum"),
+            promedio_ventas=pd.NamedAgg(column="monto", aggfunc="mean"),
+            max_venta=pd.NamedAgg(column="monto", aggfunc="max"),
+            min_venta=pd.NamedAgg(column="monto", aggfunc="min")
+        )
+        return resumen
+    def top_vendedores(self, n=3):
+        resumen = self.metricas_por_vendedor()
+        return resumen.sort_values(by="total_ventas", ascending=False).head(n)
+    
+engine = AnalisisVentas(df_ventas)
+print(engine.top_vendedores(3))
+
+
