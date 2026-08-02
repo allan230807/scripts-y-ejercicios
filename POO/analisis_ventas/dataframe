@@ -1,0 +1,18 @@
+import pandas as pd
+import numpy as np
+
+np.random.seed(42)
+
+vendedores = ["Carlos", "Ana", "Luis", "Elena", "Sofia"]
+regiones = ["Norte", "Sur", "Este", "Oeste"]
+categorias = ["Laptops", "Celulares", "Accesorios", "Monitores"]
+precios_base = {"Laptops": 1200, "Celulares": 800, "Accesorios": 50, "Monitores": 300}
+
+data = {
+    "fecha": pd.date_range(start="2026-01-01", periods=100, freq="D"),
+    "vendedor": np.random.choice(vendedores, 100),
+    "region": np.random.choice(regiones, 100),
+    "categoria": np.random.choice(categorias, 100),
+    "unidades": np.random.randint(1, 6, 100)
+}
+print(data.head(10))
