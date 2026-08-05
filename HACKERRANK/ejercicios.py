@@ -128,6 +128,34 @@ if __name__ == '__main__':
             ganancia_total += precio
             inventario[talla] -= 1
     print(ganancia_total)
+
+#ejercicio 16
+if __name__ == '__main__':
+    N = int(input())
+    mi_lista = []
+    
+    for _ in range(N):
+        partes = input().split()
+        comando = partes[0]
+        if comando == "insert":
+            i = int(partes[1])
+            e = int(partes[2])
+            mi_lista.insert(i, e)
+        elif comando == "print":
+            print(mi_lista)
+        elif comando == "remove":
+            e = int(partes[1])
+            mi_lista.remove(e)
+        elif comando == "append":
+            e = int(partes[1])
+            mi_lista.append(e)
+        elif comando == "sort":
+            mi_lista.sort()
+        elif comando == "pop":
+            mi_lista.pop()
+        elif comando == "reverse":
+            mi_lista.reverse()
+             
     
         
         
