@@ -110,6 +110,25 @@ if __name__ == '__main__':
     mas_comunes = sorted(cantidad.items(), key = lambda x: (-x[1], x[0]))
     for letra, cantidad in mas_comunes[:3]:
        print(letra, cantidad)
+
+#ejercicio 15
+
+from collections import Counter
+
+if __name__ == '__main__':
+    num_zapatos = int(input())
+    tallas_disponibles = list(map(int, input().split()))
+    
+    inventario = Counter(tallas_disponibles)
+    num_clientes = int(input())
+    ganancia_total = 0
+    for _ in range(num_clientes):
+        talla, precio = map(int, input().split())
+        if inventario[talla] > 0:
+            ganancia_total += precio
+            inventario[talla] -= 1
+    print(ganancia_total)
+    
         
         
     
