@@ -94,6 +94,22 @@ if __name__ == '__main__':
                 break
     
         print("Yes" if posible else "No")
+#ejercicio 14
+import math
+import os
+import random
+import re
+import sys
+import collections 
+
+
+
+if __name__ == '__main__':
+    s = input()
+    cantidad = collections.Counter(s)
+    mas_comunes = sorted(cantidad.items(), key = lambda x: (-x[1], x[0]))
+    for letra, cantidad in mas_comunes[:3]:
+       print(letra, cantidad)
         
         
     
