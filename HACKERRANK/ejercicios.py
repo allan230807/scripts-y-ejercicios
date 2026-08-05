@@ -65,5 +65,35 @@ if __name__ == '__main__':
     query_scores = student_marks[query_name]
     average = sum(query_scores) / len(query_scores)
     print(f"{average:.2f}")
+
+#ejercicio 13
+if __name__ == '__main__':
+    t = int(input()) 
+    
+    for _ in range(t):
+        n = int(input())
+        bloques = list(map(int, input().split()))
+        
+        left = 0
+        right = len(bloques) - 1
+        current_top = float('inf')
+        posible = True
+        
+        while left <= right:
+            if bloques[left] >= bloques[right]:
+                cubo_elegido = bloques[left]
+                left += 1
+            else:
+                cubo_elegido = bloques[right]
+                right -= 1
+                
+            if cubo_elegido <= current_top:
+                current_top = cubo_elegido  
+            else:
+                posible = False 
+                break
+    
+        print("Yes" if posible else "No")
+        
         
     
