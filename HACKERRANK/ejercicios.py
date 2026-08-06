@@ -155,6 +155,19 @@ if __name__ == '__main__':
             mi_lista.pop()
         elif comando == "reverse":
             mi_lista.reverse()
+
+#ejercicio 17
+from itertools import groupby
+if __name__ == '__main__':
+    cadena = input()
+    resultados = []
+    
+    for caracter, grupo in groupby(cadena):
+       cantidad = len(list(grupo))   
+       numero = int(caracter)
+       resultados.append((cantidad, numero))
+    print(*resultados)
+
              
     
         
