@@ -195,6 +195,32 @@ if __name__ == '__main__':
     
     print(maximo)
 
+#ejercicio 20 
+def swap_case(s):
+    resultado = ""
+    for caracter in s:
+        if caracter.isupper():
+            resultado += caracter.lower()
+        elif caracter.islower():
+            resultado += caracter.upper()
+        else:
+            resultado += caracter  
+            
+    return resultado
+if __name__ == '__main__':
+    s = input()
+    result = swap_case(s)
+    print(result)
+
+#ejercicio 21
+def swap_case(s):
+    return s.swapcase()
+if __name__ == '__main__':
+    s = input()
+    result = swap_case(s)
+    print(result)   
+
+
 
              
     
