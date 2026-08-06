@@ -168,6 +168,20 @@ if __name__ == '__main__':
        resultados.append((cantidad, numero))
     print(*resultados)
 
+#ejercicio 18
+from itertools import combinations
+
+if __name__ == '__main__':
+    longitud = int(input())
+    letras = input().split()
+    combinaciones = int(input())
+    todas = list(combinations(letras, combinaciones))
+    favorables = sum(1 for c in todas if 'a' in c)
+    totales = len(todas)
+    probabilidad = favorables / totales 
+    print(f"{probabilidad:.4f}")
+
+
              
     
         
