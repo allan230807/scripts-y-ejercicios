@@ -181,6 +181,20 @@ if __name__ == '__main__':
     probabilidad = favorables / totales 
     print(f"{probabilidad:.4f}")
 
+#ejercicio 19
+from itertools import product
+
+if __name__ == '__main__':
+    K, M = map(int, input().split())
+    listas = []
+    
+    for _ in range(K):
+        linea = list(map(int, input().split()))[1:]
+        listas.append(linea)
+    maximo = max(sum(x**2 for x in comb) % M for comb in product(*listas))
+    
+    print(maximo)
+
 
              
     
