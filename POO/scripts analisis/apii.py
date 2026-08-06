@@ -82,7 +82,7 @@ def analyze_market_with_gemini():
     
     prompt = f"Filtra y ordena esta lista de tokens colocando primero aquellos con un Z-score mayor a 3 o menor a -3, indicando si están sobrecomprados o sobrevendidos basándote en el Z-score y el desbalance del order book (bids_vol vs asks_vol). Devuelve solo la lista estructurada.\n\nDatos:\n{json.dumps(market_data)}"
     
-    response = client.models.generate_content(model="gemini-2.5-flash", contents=prompt)
+    response = client.models.generate_content(model="gemini-3.5-flash", contents=prompt)
     print(response.text)
 
 def calculate_hurst(ts):
@@ -160,7 +160,7 @@ def run_deep_analysis(symbol):
     
     prompt = f"Actúa como un analista cuantitativo. Analiza estos resultados estadísticos para {symbol}. \n1. Evalúa la cointegración con BTC (p-value).\n2. Analiza el comportamiento del SPREAD ({symbol}/BTC) usando el Exponente de Hurst y la velocidad de reversión Theta (modelo OU) respecto a su media objetivo (mu). Determina si el spread está estirado.\n3. Evalúa la presión en el order book (imbalance) y el régimen de volatilidad direccional.\n4. Cruza el riesgo direccional del Montecarlo (a 72h) con el modelo de reversión del spread para dar una conclusión estadística final.\n\nDatos:\n{json.dumps(stats_report)}"
     
-    response = client.models.generate_content(model="gemini-2.5-flash", contents=prompt)
+    response = client.models.generate_content(model="gemini-3.5-flash", contents=prompt)
     print("\n--- ANÁLISIS ESTADÍSTICO FINAL ---")
     print(response.text)
 
