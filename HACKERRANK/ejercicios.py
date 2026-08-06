@@ -218,7 +218,14 @@ def swap_case(s):
 if __name__ == '__main__':
     s = input()
     result = swap_case(s)
-    print(result)   
+    print(result)  
+#ejercicio 22 
+def split_and_join(line):
+    return "-".join(line.split(" "))
+if __name__ == '__main__':
+    line = input()
+    result = split_and_join(line)
+    print(result) 
 
 
 
